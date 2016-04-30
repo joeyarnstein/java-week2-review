@@ -7,4 +7,9 @@ public class WordTest {
   //   Word.clear();
   //   //Definition.clear();
   // }
+  @Test
+  public void word_instantiatesCorrectly_true() {
+    Word testWord = new Word("Home");
+    assertEquals(true, testWord instanceof Word);
+  }
 }
