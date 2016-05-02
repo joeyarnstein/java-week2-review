@@ -2,11 +2,11 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 public class WordTest {
-  // @After
-  // public void tearDown() {
-  //   Word.clear();
-  //   //Definition.clear();
-  // }
+  @After
+  public void tearDown() {
+    Word.clear();
+    //Definition.clear();
+  }
   @Test
   public void word_instantiatesCorrectly_true() {
     Word testWord = new Word("Bleak");
@@ -15,8 +15,8 @@ public class WordTest {
 
   @Test
   public void getName_wordInstantiatesWithName_Home() {
-    Word testCategory = new Word("Bleak");
-    assertEquals("Bleak", testCategory.getName());
+    Word testWord = new Word("Bleak");
+    assertEquals("Bleak", testWord.getName());
   }
 
   @Test
@@ -66,5 +66,16 @@ public class WordTest {
     Definition testDef = new Definition("Where one sleeps");
     testWord.addDefinition(testDef);
     assertTrue(testWord.getDefinitions().contains(testDef));
+  }
+
+  @Test
+  public void addDefinition_addsManyDefinitionToOneWord_true() {
+    Word testWord = new Word("Home");
+    Definition testDefOne = new Definition("Where one sleeps");
+    testWord.addDefinition(testDefOne);
+    Definition testDefTwo = new Definition("Perferred place to take shower");
+    testWord.addDefinition(testDefTwo);
+    assertTrue(testWord.getDefinitions().contains(testDefOne));
+    assertTrue(testWord.getDefinitions().contains(testDefTwo));
   }
 }

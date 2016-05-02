@@ -1,1 +1,11 @@
-<h1>Test Text</h1>
+<h1>Dictionary</h1>
+
+<h3>Words</h3>
+
+<ul>
+  #foreach ($word in $words)
+    <li><a href="/words/$word.getId()">$word.getName()</a></li>
+  #end
+</ul>
+
+<a href="/words/new">Add a New Word</a>

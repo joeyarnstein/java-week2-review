@@ -21,6 +21,17 @@ public class AppTest extends FluentTest {
   @Test
   public void rootTest() {
     goTo("http://localhost:4567/");
+    assertThat(pageSource()).contains("Dictionary");
+    assertThat(pageSource()).contains("Add a New Word");
   }
 
-} 
+  @Test
+  public void WordIsCreatedAndDisplayedTest() {
+    goTo("http://localhost:4567/");
+    click("a", withText("Add a New Word"));
+    fill("#word").with("Boolean");
+    submit(".btn");
+    assertThat(pageSource()).contains("Boolean");
+  }
+
+}
