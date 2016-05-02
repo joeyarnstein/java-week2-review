@@ -4,4 +4,8 @@ public class Definition {
   public Definition(String description){
     mDescription = description;
   }
+
+  public String getDescription(){
+    return mDescription;
+  }
 }

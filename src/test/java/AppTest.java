@@ -34,4 +34,18 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Boolean");
   }
 
+  @Test
+  public void definitonIsAddedAndDisplayed() {
+    goTo("http://localhost:4567/word/new");
+    fill("#word").with("Towel");
+    submit(".btn");
+    click("a", withText("Towel"));
+    click("a", withText("Add a new task"));
+    fill("#description").with("Deposit paycheck");
+    submit(".btn");
+    click("a", withText("View categories"));
+    click("a", withText("Banking"));
+    assertThat(pageSource()).contains("Deposit paycheck");
+  }
+
 }
