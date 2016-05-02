@@ -36,16 +36,15 @@ public class AppTest extends FluentTest {
 
   @Test
   public void definitonIsAddedAndDisplayed() {
-    goTo("http://localhost:4567/word/new");
+    goTo("http://localhost:4567/words/new");
     fill("#word").with("Towel");
     submit(".btn");
     click("a", withText("Towel"));
-    click("a", withText("Add a new task"));
-    fill("#description").with("Deposit paycheck");
+    click("a", withText("Add a definition for this word"));
+    fill("#description").with("Cloth to dry body");
     submit(".btn");
-    click("a", withText("View categories"));
-    click("a", withText("Banking"));
-    assertThat(pageSource()).contains("Deposit paycheck");
+    click("a", withText("Towel"));
+    assertThat(pageSource()).contains("Cloth to dry body");
   }
 
 }
