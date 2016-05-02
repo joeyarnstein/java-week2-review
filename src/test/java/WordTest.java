@@ -53,4 +53,18 @@ public class WordTest {
   public void find_returnsNullWhenNoWordFound_null() {
     assertTrue(Word.find(999) == null);
   }
+
+  @Test
+  public void getDefinitions_initiallyReturnsEmptyList_ArrayList() {
+    Word test = new Word("Home");
+    assertEquals(0, test.getDefinitions().size());
+  }
+
+  @Test
+  public void addDefinition_addsDefinitionToList_true() {
+    Word testWord = new Word("Home");
+    Definition testDef = new Definition("Where one sleeps");
+    testWord.addDefinition(testDef);
+    assertTrue(testWord.getDefinitions().contains(testDef));
+  }
 }
